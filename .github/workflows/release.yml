@@ -1,0 +1,24 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - run: npx changelogithub # 这里使用 antfu 的 changelogithub 插件，也可更换其余 cli log 工具
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
