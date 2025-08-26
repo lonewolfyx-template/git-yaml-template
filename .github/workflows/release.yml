@@ -19,6 +19,6 @@ jobs:
         with:
           node-version: lts/*
 
-      - run: npx changelogithub # 这里使用 antfu 的 changelogithub 插件，也可更换其余 cli log 工具
+      - run: npx genereleaselog
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
