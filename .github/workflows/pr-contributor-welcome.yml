@@ -1,4 +1,3 @@
-# 当 PR 被合并时，留言欢迎加入共建群
 name: PullRequest Contributor Welcome
 
 on:
@@ -32,7 +31,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            🎉 感谢您的贡献(Thank you for your contribution)
+            🎉 Thx for the PR @${{ github.event.pull_request.user.login }}
 
             <!-- WELCOME_CONTRIBUTION -->
           body-include: <!-- WELCOME_CONTRIBUTION -->
